@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
+const ytdl = require('ytdl-core');
 
 var indexRouter = require('./routes/index');
 var quotesRouter = require('./routes/quotes');
