@@ -8,13 +8,21 @@ var quotesRouter = require('./routes/quotes');
 
 var app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/download', (req,res) => {
+  var URL = req.query.URL;
+  res.header('Content-Disposition', 'attachment; filename="video.mp4"');
+  ytdl(URL, {
+    format: 'mp4'
+  }).pipe(res);
+});
+
 app.use('/', indexRouter);
-app.use('/quotes', quotesRouter);
 
 module.exports = app;
