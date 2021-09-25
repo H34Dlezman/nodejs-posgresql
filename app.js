@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/download', (req,res) => {
   var URL = req.query.URL;
-  res.header('Content-Disposition', 'attachment; filename="video.mp4"');
+  //res.header('Content-Disposition', 'attachment; filename="video.mp4"');
   ytdl.getInfo(URL).pipe(res);
 });
 
