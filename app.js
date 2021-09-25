@@ -21,7 +21,7 @@ app.get('/download', (req,res) => {
   var URL = req.query.URL;
   //res.header('Content-Disposition', 'attachment; filename="video.json"');
   res.setHeader('Content-Type', 'application/json');
-  ytdl.getInfo(URL).pipe(res.json);
+  ytdl.getInfo(URL).pipe(o => {res.json(JSON.stringify(o))});
 });
 
 app.use('/', indexRouter);
