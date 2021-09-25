@@ -20,12 +20,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/download', async (req,res) => {
 console.log("ii")
   var URL = req.query.URL;
-  res.header('Content-Disposition', 'attachment; filename="video.mp4"');
+  //res.header('Content-Disposition', 'attachment; filename="video.mp4"');
   let o = await ytdl(URL, {
     format: 'mp4'
   });
   console.log(o)
   console.log("hi")
+  res.render("dsa\n\n"+JSON.stringify(o))
 });
 
 app.use('/', indexRouter);
