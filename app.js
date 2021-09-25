@@ -19,8 +19,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/download', (req,res) => {
   var URL = req.query.URL;
-  res.header('Content-Disposition', 'attachment; filename="video.json"');
-  ytdl.getInfo(URL).pipe(res);
+  //res.header('Content-Disposition', 'attachment; filename="video.json"');
+  res.setHeader('Content-Type', 'application/json');
+  ytdl.getInfo(URL).pipe(res.json);
 });
 
 app.use('/', indexRouter);
