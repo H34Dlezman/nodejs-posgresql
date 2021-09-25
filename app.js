@@ -24,7 +24,7 @@ console.log("ii")
   let o = await ytdl(URL, {
     format: 'mp4'
   });
-  res.json(o)
+  res.json(o.json())
 });
 
 app.use('/', indexRouter);
