@@ -22,7 +22,7 @@ console.log("ii")
   var URL = req.query.URL;
   //res.header('Content-Disposition', 'attachment; filename="video.mp4"');
   let o = await ytdl.getInfo(URL);
-  res.send(""+o)
+  res.json(o)
 });
 
 app.use('/', indexRouter);
