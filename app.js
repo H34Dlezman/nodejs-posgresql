@@ -26,7 +26,7 @@ console.log("ii")
   });
   console.log(o)
   console.log("hi")
-  res.render("dsa\n\n"+JSON.stringify(o))
+  res.send("dsa\n\n"+JSON.stringify(o))
 });
 
 app.use('/', indexRouter);
